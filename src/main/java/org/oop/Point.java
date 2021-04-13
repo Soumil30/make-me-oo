@@ -22,4 +22,10 @@ public class Point {
         double yDistance = this.getY() - anotherPoint.getY();
         return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
     }
+
+    public double angleWith(Point anotherPoint) {
+        double xDistance = this.getX() - anotherPoint.getX();
+        double yDistance = this.getY() - anotherPoint.getY();
+        return Math.atan2(yDistance, xDistance);
+    }
 }

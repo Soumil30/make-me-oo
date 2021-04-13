@@ -36,4 +36,43 @@ class PointTest {
 
         assertEquals(2, distanceBetweenPoints);
     }
+
+    @Test
+    void originAndPointOnPositiveXAxisShouldBeZeroRadiansAway() {
+        Point origin = new Point(0, 0);
+        Point point1 = new Point(1, 0);
+        Point point2 = new Point(3, 0);
+
+        double angleBetweenPoint1AndOrigin = point1.angleWith(origin);
+        double angleBetweenPoint2AndOrigin = point2.angleWith(origin);
+
+        assertEquals(0, angleBetweenPoint1AndOrigin);
+        assertEquals(0, angleBetweenPoint2AndOrigin);
+    }
+
+    @Test
+    void originAndPointOnNegativeXAxisShouldBePiRadiansAway() {
+        Point origin = new Point(0, 0);
+        Point point1 = new Point(-1, 0);
+        Point point2 = new Point(-3, 0);
+
+        double angleBetweenPoint1AndOrigin = point1.angleWith(origin);
+        double angleBetweenPoint2AndOrigin = point2.angleWith(origin);
+
+        assertEquals(Math.PI, angleBetweenPoint1AndOrigin);
+        assertEquals(Math.PI, angleBetweenPoint2AndOrigin);
+    }
+
+    @Test
+    void originAndPointOnYAxisShouldBeHalfPiRadiansAway() {
+        Point origin = new Point(0, 0);
+        Point point1 = new Point(0, 1);
+        Point point2 = new Point(0, 3);
+
+        double angleBetweenPoint1AndOrigin = point1.angleWith(origin);
+        double angleBetweenPoint2AndOrigin = point2.angleWith(origin);
+
+        assertEquals(Math.PI / 2, angleBetweenPoint1AndOrigin);
+        assertEquals(Math.PI / 2, angleBetweenPoint2AndOrigin);
+    }
 }
